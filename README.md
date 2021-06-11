@@ -1,3 +1,7 @@
+#About the project
+
+This is a simple counter based on react. I used this project as a way to learn about state management using useReducer and Context API.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
