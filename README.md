@@ -1,4 +1,4 @@
-#About the project
+# About the project
 
 This is a simple counter based on react. I used this project as a way to learn about state management using useReducer and Context API.
 
