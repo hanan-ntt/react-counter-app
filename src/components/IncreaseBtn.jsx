@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { CounterContext } from '../App';
+import CounterContext from '../store/count-context';
 
 const IncreaseBtn = () => {
-  const counterCTX = useContext(CounterContext);
+  const { ctxDispatch } = useContext(CounterContext);
   const onClickIncreaseHandler = () => {
-    counterCTX.countDispatch({ type: 'increase' });
+    ctxDispatch({ type: 'increase' });
   };
   return <button onClick={onClickIncreaseHandler}>Increase by 1</button>;
 };

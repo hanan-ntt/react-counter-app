@@ -1,40 +1,20 @@
-import React, { useReducer, createContext } from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 import DecreaseBtn from './components/DecreaseBtn';
 import IncreaseBtn from './components/IncreaseBtn';
 import ResetBtn from './components/ResetBtn';
-
-const initialState = {
-  startingState: 0,
-};
-
-const counterReducer = (state, action) => {
-  switch (action.type) {
-    case 'increase':
-      return { ...state, startingState: state.startingState + 1 };
-    case 'decrease':
-      return { ...state, startingState: state.startingState - 1 };
-    case 'reset':
-      return initialState;
-    default:
-      return state.startingState;
-  }
-};
-export const CounterContext = createContext();
+import CounterContext from './store/count-context';
 
 function App() {
-  const [counter, dispatch] = useReducer(counterReducer, initialState);
+  const { ctxCounter } = useContext(CounterContext);
+  const { startingCount: count } = ctxCounter;
   return (
-    <CounterContext.Provider
-      value={{ countState: counter, countDispatch: dispatch }}
-    >
-      <div className='App'>
-        <div>Current Count {counter.startingState}</div>
-        <IncreaseBtn />
-        <DecreaseBtn />
-        <ResetBtn />
-      </div>
-    </CounterContext.Provider>
+    <div className='App'>
+      <div>Current Count {count}</div>
+      <IncreaseBtn />
+      <DecreaseBtn />
+      <ResetBtn />
+    </div>
   );
 }
 

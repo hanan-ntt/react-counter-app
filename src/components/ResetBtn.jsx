@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { CounterContext } from '../App';
+import CounterContext from '../store/count-context';
 
 const ResetBtn = () => {
-  const counterCTX = useContext(CounterContext);
+  const { ctxDispatch } = useContext(CounterContext);
   const onClickResetHandler = () => {
-    counterCTX.countDispatch({ type: 'reset' });
+    ctxDispatch({ type: 'reset' });
   };
   return <button onClick={onClickResetHandler}>Reset</button>;
 };
